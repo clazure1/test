@@ -151,7 +151,7 @@ void IntroSort::introSort(std::vector<int>& arr, int left, int right, int depthL
         stats.swaps += heapSort.getStats().swaps;
         heapSort.resetStats();
         
-        for (int i = 0; i < temp.size(); i++) {
+        for (size_t i = 0; i < temp.size(); i++) {
             arr[left + i] = temp[i];
         }
         return;
@@ -299,7 +299,7 @@ void CountingSort::sort(std::vector<int>& arr) {
     std::vector<int> count(range, 0);
     std::vector<int> output(arr.size());
     
-    for (int i = 0; i < arr.size(); i++) {
+    for (size_t i = 0; i < arr.size(); i++) {
         count[arr[i] - minVal]++;
         stats.comparisons++;
     }
@@ -314,7 +314,7 @@ void CountingSort::sort(std::vector<int>& arr) {
         stats.swaps++;
     }
     
-    for (int i = 0; i < arr.size(); i++) {
+    for (size_t i = 0; i < arr.size(); i++) {
         arr[i] = output[i];
     }
 }

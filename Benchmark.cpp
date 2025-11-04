@@ -27,26 +27,29 @@ private:
         std::mt19937 gen(42); // Fixed seed for reproducibility
         
         switch (type) {
-            case DataType::RANDOM:
+            case DataType::RANDOM: {
                 std::uniform_int_distribution<> dis(0, size * 10);
                 for (int i = 0; i < size; i++) {
                     data[i] = dis(gen);
                 }
                 break;
+            }
                 
-            case DataType::SORTED:
+            case DataType::SORTED: {
                 for (int i = 0; i < size; i++) {
                     data[i] = i;
                 }
                 break;
+            }
                 
-            case DataType::REVERSE_SORTED:
+            case DataType::REVERSE_SORTED: {
                 for (int i = 0; i < size; i++) {
                     data[i] = size - i;
                 }
                 break;
+            }
                 
-            case DataType::NEARLY_SORTED:
+            case DataType::NEARLY_SORTED: {
                 for (int i = 0; i < size; i++) {
                     data[i] = i;
                 }
@@ -58,20 +61,23 @@ private:
                     std::swap(data[idx1], data[idx2]);
                 }
                 break;
+            }
                 
-            case DataType::MANY_DUPLICATES:
+            case DataType::MANY_DUPLICATES: {
                 std::uniform_int_distribution<> dup_dis(0, 10);
                 for (int i = 0; i < size; i++) {
                     data[i] = dup_dis(gen);
                 }
                 break;
+            }
                 
-            case DataType::FEW_UNIQUE:
+            case DataType::FEW_UNIQUE: {
                 std::uniform_int_distribution<> unique_dis(0, 100);
                 for (int i = 0; i < size; i++) {
                     data[i] = unique_dis(gen);
                 }
                 break;
+            }
         }
         
         return data;
